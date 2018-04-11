@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  text-align: center;
+}
+
+img {
+  height: 400px;
+  width: 400px;
+}
+
+#cerrar {
+  display: none;
+}
+
+#cerrar + label {
+  position: fixed;
+  color: #fff;
+  font-size: 25px;
+  background-color: darkred;
+  z-index: 50;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  right: 10px;
+  cursor: pointer;
+
+  animation: modal 2s 3s forwards; /*EL 2s ES EL TIEMPO QUE VA A TARDAR CARGANDO LA ANIMACION, EL 3s ES EL RETRASO
+  DESPUES DE CUANTO TIEMPO VA A PARECER LA ANIMACION*/
+  /*animation-fill-mode: forwards; /*CON ESTO LE DECIMOS AL ELEMENTO QUE TIENE LA ANIMACION QUE SE QUEDE CUANDO
+  TERMINE LA ANIMACION*/
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, .8);
+  top: 0;
+  left: 0;
+  display: flex;
+
+  animation: modal 2s 3s; /*EL 2s ES EL TIEMPO QUE VA A TARDAR CARGANDO LA ANIMACION, EL 3s ES EL RETRASO
+  DESPUES DE CUANTO TIEMPO VA A PARECER LA ANIMACION*/
+  animation-fill-mode: forwards; /*CON ESTO LE DECIMOS AL ELEMENTO QUE TIENE LA ANIMACION QUE SE QUEDE CUANDO
+  TERMINE LA ANIMACION*/
+  visibility: hidden;
+  opacity: 0;
+}
+
+.contenido {
+  margin: auto;
+  width: 40%;
+  height: 40%;
+}
+
+/**** ABRIR LA VENTANA MODAL ****/
+/*#open:checked ~ .cerrar, #open:checked ~ .modal {
+  visibility: visible;
+  opacity: 1;
+}*/
+
+/**** CERRAR LA VENTANA MODAL ****/
+#cerrar:checked + label, #cerrar:checked ~ .modal {/*CUANDO CERRAR TENGA EL CHECK ACTIVO SE VAN A SELECCIONAR EL
+  LABEL Y EL EL ELEMNTO QUE TENGA LA CLASE MODAL*/
+  display: none;
+
+}
+
+@keyframes modal {
+  100% { /*ESTE 100% HACE REFERENCIA A LA ANIMACION,ES DECIR CUANDO LA ANIMACION HAYA TERMINADO*/
+    visibility: visible;
+    opacity: 1;
+  }
+}
